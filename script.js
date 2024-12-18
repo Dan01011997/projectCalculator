@@ -8,8 +8,16 @@
     const display=document.querySelector(".display");
     let numberArray=Array.from(numbers);
     let operatorArray=Array.from(operators);
-
+    let buttonPressed;
+    let buttonArray=Array.from(buttons);
     let flagOperator=0;
+    let para=document.createElement('p');
+    let firstOperator;
+    let operatorPressed;
+    let i=0;
+    para.textContent=`0`;
+    let exponentialPow;
+    display.appendChild(para);
 
     //seting up lower keys
     operatorArray.forEach((operator)=>{
@@ -48,9 +56,6 @@
 
     })
     ;
-
-    let buttonPressed;
-    let buttonArray=Array.from(buttons);
     //add event listener to all buttons
     buttonArray.forEach((button)=>{
         button.parentNode.style.boxShadow=`1.5px 1.5px 2.5px 1.5px #dddddd`
@@ -75,9 +80,7 @@
             
             buttonPressed=e.target;
     }
-    let para=document.createElement('p');
-    para.textContent=`0`;
-    display.appendChild(para);
+ 
 
 
     function buttonReset(e){
@@ -171,9 +174,6 @@
 
 
     }
-    let firstOperator;
-    let operatorPressed;
-    let i=0;
     //operator state
     function operatorButtonState(operator){
         if(flagOperator===0)
@@ -202,9 +202,22 @@ function changeOperatorBg(operator){
 
 
     function checkOperator(operator){
+
         let newArr
         let firstOne=parseFloat(firstOperator);
-        let secondOne=parseFloat(para.textContent)
+        let secondOne=parseFloat(para.textContent);
+        if(firstOperator.includes('e'))
+        {
+            let firstArray=firstOperator.split('');
+            let arrayReformed=firstArray.splice(0,5);
+            
+            firstArray.splice(0,2);
+            
+            let expNum=Math.pow(10,parseInt(firstArray.join('')));
+            firstOne=parseFloat(arrayReformed.join(''))*expNum;
+            console.log(firstOne)
+            
+        }
     if(operator.textContent==='/')
         para.textContent=divide(firstOne,secondOne);
     else if(operator.textContent==='X')
@@ -213,10 +226,32 @@ function changeOperatorBg(operator){
         para.textContent=sum(firstOne,secondOne);
     else
         para.textContent=subtract(firstOne,secondOne);
-    if(para.textContent.length>=11 && para.textContent.includes('.')){         
+    console.log(para.textContent);
+    if(para.textContent.includes('e'))
+    {
         newArr=para.textContent.split('');
-        newArr.splice(11);
+        
+    let splitArr=newArr.splice(0,5);
+    let arrPush=newArr.splice(newArr.indexOf('+')+1);
+    splitArr.push(`e+${arrPush.join('')}`);
+
+para.textContent=splitArr.join('');
+    }
+    else if(para.textContent.length>=11 && para.textContent.includes('.')){         
+        newArr=para.textContent.split('');
+        newArr.splice(8);
+        if(newArr[newArr.length-1]==='.')
+            newArr.pop();
     para.textContent=newArr.join('')
+    }
+    else if(para.textContent.length>11 && !para.textContent.includes('.')){         
+        newArr=para.textContent.split('');
+            let ArrLength=newArr.length-5;
+        let splitArr=newArr.splice(0,5)
+        splitArr.push(`e+${ArrLength}`);
+
+    para.textContent=splitArr.join('');
+    
     }
     return;
     }
@@ -226,12 +261,13 @@ function changeOperatorBg(operator){
         return `${a/b}`;
     }
     function multiply(a,b){
+        
         return `${a*b}`;
     }
     function sum(a,b){
         return `${a+b}`;
     }
 
-        function subtract(a,b){
+    function subtract(a,b){
             return `${a-b}`;
         }
