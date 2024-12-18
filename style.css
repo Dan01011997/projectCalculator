@@ -77,7 +77,7 @@ gap:10px;
 
 .calculatorKeys .upperKeys{
 
-    height:20%;
+    height:16%;
 }
 .calculatorKeys .upperKeys div.clear{
     height:100%;
@@ -127,7 +127,10 @@ div button{
     font-size: 40px;
     background-color: rgb(238, 238, 238);
 }
-
+.upperKeys  #violet{
+   font-weight: 600;
+   background-color:  rgb(233, 233, 253);
+}
 .operators{
     height: 100%;
     display: flex;
@@ -135,5 +138,5 @@ div button{
     gap:10px
 }
 .operators button{
-    background-color: rgb(238, 230, 230);
+    background-color: rgb(243, 217, 217);
 }
