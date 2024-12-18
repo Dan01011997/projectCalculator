@@ -1,0 +1,139 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width:100%;
+    height:100vh;
+}
+
+.container{
+    width:100%;
+    height:100%;
+    padding:30px;
+    display:flex;
+    flex-direction: column;
+    
+    gap:90px;
+}
+.container > div{
+    box-shadow: 1.5px 3px 20.5px 2.5px #dddddd;
+    
+}
+.container > div.mode {
+align-self: flex-end;
+height:50px;
+width:50px;
+border-radius: 20px;
+}
+.container > div.calculatorBody{
+    align-self: center;
+    height:700px;
+    width:450px;
+    border-radius:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  padding:20px 0 20px 0;
+  gap:20px;
+}
+.container .calculatorBody div.display{
+width:90%;
+height:20%;
+font-size:65px ;
+overflow: hidden;
+display: flex;
+justify-content: flex-end;
+align-items: flex-end;
+background-color: #f0f0f0;
+box-shadow: 1.5px 3px 20.5px 2.5px #dddddd;
+}
+.display p{
+    font-weight: lighter;
+}
+.container .calculatorBody div.calculatorKeys{
+width:90%;
+height:78%;
+
+}
+.calculatorKeys{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+.calculatorKeys > div{
+    width:100%;
+    display: flex;
+gap:10px;
+}
+.calculatorKeys > div > div{
+
+
+}
+
+.calculatorKeys .upperKeys{
+
+    height:20%;
+}
+.calculatorKeys .upperKeys div.clear{
+    height:100%;
+    width:75%;
+    display: flex;
+    gap:10px;
+}
+.clear div{
+    flex:1;
+    border-radius: 20px;
+}
+.backspace{
+    border-radius: 20px;
+}
+
+.calculatorKeys .upperKeys div button{
+    border-radius: 20px;
+}
+.calculatorKeys .upperKeys div.backspace{
+    height:100%;
+    width:23%;
+}
+.calculatorKeys .lowerKeys{
+    height:80%;
+}
+
+.calculatorKeys .lowerKeys div.numbers{
+    height:100%;
+    width:75%;
+}
+
+.calculatorKeys .lowerKeys div.opre{
+    height:100%;
+    width:23%;
+}
+.numbers{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap:5px;
+    border: 0px solid black;
+}
+div button{
+    width:100%;
+    height: 100%;
+    border: none;
+    border-radius: 50%;
+    font-size: 40px;
+    background-color: rgb(238, 238, 238);
+}
+
+.operators{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+.operators button{
+    background-color: rgb(238, 230, 230);
+}
