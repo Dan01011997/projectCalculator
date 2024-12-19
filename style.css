@@ -17,6 +17,7 @@ html,body{
     flex-direction: column;
     
     gap:90px;
+    background-color: rgb(255, 252, 246)
 }
 .container > div{
     box-shadow: 1.5px 3px 20.5px 2.5px #dddddd;
@@ -38,6 +39,7 @@ border-radius: 20px;
     align-items: center;
   padding:20px 0 20px 0;
   gap:20px;
+  background-color: white;
 }
 .container .calculatorBody div.display{
 width:90%;
